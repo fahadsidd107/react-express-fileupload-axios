@@ -1,12 +1,11 @@
 import express from "express";
 import fileUpload from "express-fileupload";
-import res from "express/lib/response";
 const PORT = process.env.PORT || 7000;
 
 const app = express();
 app.use(fileUpload());
 
-///upload API
+// /upload API
 
 app.post("/upload", (req, res) => {
   if (req.files == null) {

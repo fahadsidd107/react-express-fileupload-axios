@@ -1,17 +1,22 @@
 {
-  "name": "react-express-fileupload-axios",
+  "name": "file-uploader-react-axios",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.mjs",
+    "server" : "nodemon server.mjs",
+    "client" : "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^6.5.1",
     "express": "^4.17.2",
-    "express-fileupload": "^1.2.1",
+    "express-fileupload": "^1.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.5.1",
     "nodemon": "^2.0.15"
   }
 }
