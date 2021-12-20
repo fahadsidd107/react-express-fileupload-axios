@@ -4,6 +4,7 @@ export const FileUpload = () => {
 
 const [file,setFile]=useState('');
 const [fileName,setFileName]=useState('Choose File')
+const [uploadedFile,setUploadedFile]=useState({})
 
 const filehandler =(e)=>{
   setFile(e.target.files[0]);
@@ -22,8 +23,15 @@ const res = await axios.post('/upload',formData,
     'Content-Type':'multipart/form-data'
   }
 })
+const {fileName,filePath} =res.data;
+setUploadedFile({fileName,filePath})
 }catch(err){
-
+if (err.res.status ===500){
+  console.log("There was a problem with the server")
+}
+else{
+  console.log(err.res.data.msg);
+}
 }
 }
 
