@@ -5,6 +5,11 @@ export const FileUpload = () => {
 const [file,setFile]=useState('');
 const [fileName,setFileName]=useState('Choose File')
 
+const filehandler =(e)=>{
+  setFile(e.target.files[0]);
+  setFileName(e.target.files[0]);
+}
+
   return (
     <Fragment>
       <form>
@@ -13,7 +18,7 @@ const [fileName,setFileName]=useState('Choose File')
             type='file'
             className='custom-file-input'
             id='customFile'
-            
+            onChange={filehandler}
           />
           <label className='custom-file-label' htmlFor='customFile'>
             {fileName}
