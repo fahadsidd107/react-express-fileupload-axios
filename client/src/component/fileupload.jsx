@@ -1,5 +1,5 @@
-import React, { Fragment,useState} from "react";
-
+import React, { Fragment,useState,useEffect} from "react";
+import axios from 'axios';
 export const FileUpload = () => {
 
 const [file,setFile]=useState('');
@@ -10,9 +10,30 @@ const filehandler =(e)=>{
   setFileName(e.target.files[0]);
 }
 
+const submithandler = async (e)=>{
+e.preventDefault();
+const formData = new FormData();
+formData.append('file',file);
+ 
+try{
+const res = await axios.post('/upload',formData,
+{
+  headers:{
+    'Content-Type':'multipart/form-data'
+  }
+})
+}catch(err){
+
+}
+}
+
+
+
+
+
   return (
     <Fragment>
-      <form>
+      <form onSubmit={submithandler}>
       <div className='custom-file mt-4'>
           <input
             type='file'
