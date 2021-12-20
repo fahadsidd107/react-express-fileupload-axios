@@ -1,4 +1,4 @@
-import React, { Fragment,useState,useEffect} from "react";
+import React, { Fragment,useState} from "react";
 import axios from 'axios';
 export const FileUpload = () => {
 
@@ -61,6 +61,12 @@ else{
           className='btn btn-outline-dark btn-block mt-4'
         />
       </form>
+      {uploadedFile ? <div className="row mt-5">
+       <div className="col-md-6 m-auto">
+         <h3 className="text-center">{uploadedFile.filename}</h3>
+         <img style={{width:'100%' }} src={uploadedFile.filePath}/>
+       </div> 
+      </div> : null}
     </Fragment>
   );
 };

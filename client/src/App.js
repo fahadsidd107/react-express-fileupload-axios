@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { FileUpload } from './component/fileupload';
 import { FaReact } from 'react-icons/fa';
 import './App.css';
