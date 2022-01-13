@@ -51,7 +51,7 @@ const FileUpload = () => {
       setUploadPercentage(0)
     }
   };
-
+  console.log(uploadedFile.filePath)
   return (
     <Fragment>
       {message ? <Message msg={message} /> : null}
@@ -87,5 +87,6 @@ const FileUpload = () => {
     </Fragment>
   );
 };
+
 
 export default FileUpload;
